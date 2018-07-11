@@ -1,0 +1,58 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        日志管理
+        <small>登陆日志</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="${ctxPath}"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="#">日志管理</a></li>
+        <li class="active">登陆日志</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+
+                <div class="box-body">
+                    <table id="user_table" class="table table-border table-hover">
+
+                            <tbody>
+
+                            </tbody>
+                    </table>
+                </div>
+                <!-- /.box-body -->
+            </div>
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>
+
+<script type="text/javascript">
+    var userTable;
+    var selectId = '${selectId}';
+    $(function(){
+        var selected_config={
+            "ajaxSource": ctxPath + "/log/login/loadData",
+            "columns" :
+                // /对接收到的json格式数据进行处理，data为json中对应的key
+                [
+                    {"data":"id","title":"序号","name":"id","visible":true,"sortable":false,"class":"text-center"},
+                    {"data":"logname","title":"登陆账号","name":"logname","visible":true,"sortable":true,"class":"text-center"},
+                    {"data":"succeed","title":"登陆状态","name":"succeed","visible":true,"sortable":true,"class":"text-center"},
+                    {"data":"ip","title":"ip","name":"ip","visible":true,"sortable":false,"class":"text-center"},
+                    {"data":"createtime","title":"登陆时间","name":"createtime","visible":true,"class":"text-center",
+                        "render" : function(data, type, full, meta) {
+                        //时间格式化
+                            return (new Date(data)).Format("yyyy-mm-dd hh:ii:ss");
+                     }}
+                ]
+        };
+        userTable = new CommonTable("user_table", "user_list", "searchDiv",selected_config);
+    })
+</script>

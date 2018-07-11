@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moye.crawler.modules.sys.dao.SysRoleDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moye.crawler.entity.sys.SysRole">
+		<id column="id" property="id" />
+		<result column="sort" property="sort" />
+		<result column="pid" property="pid" />
+		<result column="name" property="name" />
+		<result column="deptid" property="deptid" />
+		<result column="tips" property="tips" />
+		<result column="code" property="code"/>
+		<result column="version" property="version" />
+		<result column="remark" property="remark"/>
+		<result column="status" property="status"/>
+	</resultMap>
+
+	<select id="selectRoleList" resultMap="BaseResultMap" parameterType="com.moye.crawler.entity.sys.SysRole">
+		select * from sys_role where status = #{status}
+	</select>
+</mapper>

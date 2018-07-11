@@ -1,0 +1,157 @@
+
+<section class="content-header">
+    <h1>
+        <span>采集内容</span>
+        <small id="title_sm">预览</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="${ctxPath}"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="#">爬虫管理</a></li>
+        <li><a href="#"><span data-infoId="${webpage.spiderInfoId}" id="backData">采集数据</span></a></li>
+        <li class="active"><a href="#">内容详情</a></li>
+    </ol>
+</section>
+<script type="text/javascript">
+    $(function(){
+        $("#backData").click(function() {
+            var rowId = $("#backData").data("infoId");
+            window.loadPage(ctxPath + "/spider/data/list?id=" + rowId);
+        })
+    });
+</script>
+<section class="content">
+    <div class="row form-horizontal">
+        <div class="box box-primary ">
+            <div class="col-md-9">
+                <div class="box box-body">
+                    <div clas="form-group box-header text-center" style="text-align: center">
+                        <label id="title" style="font-size:21px;font-weight:bold">${webpage.title}</label>
+                    </div>
+                    <div clas="content">
+                        <div id="editormd">
+                            ${webpage.content}
+                        </div>
+
+                    <h3>网页元信息</h3>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th style="width: 20%">属性名称</th>
+                            <th style="width: 80%">属性值</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>关键词</td>
+                            <td>
+                                @for(keyword in webpage.keywords){
+                                <span class="label label-primary">${keyword}</span>
+                                @}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>类别</td>
+                            <td>${webpage.category}</td>
+                        </tr>
+                        <tr>
+                            <td>摘要</td>
+                            <td style="word-break:break-all; word-wrap:break-word;">
+                                ${webpage.summary[0]}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>人名</td>
+                            <td style="word-break:break-all; word-wrap:break-word;">
+                                @for(entry in webpage.namedEntity){
+                                    @var key = entry.key;
+                                    @var value = entry.value;
+                                    @if(key == "nr"){
+                                    @for(word in value){
+                                    <a class="btn btn-info btn-sm" style="margin: 1px"
+                                       href="/panel/commons/showRelatedInfo?query=namedEntity.nr:${word}">${word}</a>
+                                    @}
+                                    @}
+                                @}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>地名</td>
+                            <td style="word-break:break-all; word-wrap:break-word;">
+                                @for(entry in webpage.namedEntity){
+                                @var key = entry.key;
+                                @var value = entry.value;
+                                @if(key == "ns"){
+                                @for(word in value){
+                                <a class="btn btn-info btn-sm" style="margin: 1px" >${word}</a>
+                                @}
+                                @}
+                                @}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>机构名</td>
+                            <td style="word-break:break-all; word-wrap:break-word;">
+                                @for(entry in webpage.namedEntity){
+                                @var key = entry.key;
+                                @var value = entry.value;
+                                @if(key == "nt"){
+                                @for(word in value){
+                                <a class="btn btn-info btn-sm" style="margin: 1px" >${word}</a>
+                                @}
+                                @}
+                                @}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>发布时间</td>
+                            <td>
+                                ${webpage.publishTime ,dateFormat="yyyy-MM-dd HH:mm:ss"}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>采集时间</td>
+                            <td>
+                                ${webpage.gathertime, dateFormat="yyyy-MM-dd HH:mm:ss"}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>网页处理耗时</td>
+                            <td>
+                               ${webpage.processTime} 秒
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+
+                    <p>
+                        <a href=" ${webpage.url}" target="_blank">阅读原文</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="box box-body">
+                <h3>相关资讯</h3>
+                <ul class="list-group">
+                    @for(web in relatedWebpageList){
+                    <li class="list-group-item">
+                        <a href="javascript:return false;" onclick="javascript:relatedView('${web.id}')"> ${web.title}</a>
+                    </li>
+                    @}
+                </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+<script>
+     function relatedView(id) {
+         window.loadPage(ctxPath + "/spider/data/view?id=" + id);
+     }
+</script>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moye.crawler.modules.sys.dao.SysUserDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moye.crawler.entity.sys.SysUser">
+		<id column="id" property="id" />
+		<result column="avatar" property="avatar" />
+		<result column="account" property="account" />
+		<result column="password" property="password" />
+		<result column="salt" property="salt" />
+		<result column="name" property="name" />
+		<result column="birthday" property="birthday" />
+		<result column="sex" property="sex" />
+		<result column="email" property="email" />
+		<result column="phone" property="phone" />
+		<result column="roleid" property="roleid" />
+		<result column="deptid" property="deptid" />
+		<result column="status" property="status" />
+		<result column="createtime" property="createtime" />
+		<result column="version" property="version" />
+	</resultMap>
+
+	<select id="selectUserList" resultType="com.moye.crawler.entity.sys.SysUser">
+		SELECT * FROM sys_user where password = #{password}
+	</select>
+
+	<select id="queryPageList" resultType="com.moye.crawler.entity.sys.SysUser">
+		SELECT * FROM sys_user where password = #{password}
+	</select>
+
+    <select id="queryRoleUserList" resultType="com.moye.crawler.entity.sys.SysUser" parameterType="java.util.Map">
+		select * from sys_user u join sys_user_role ur on  u.id = ur.userid and ur.roleid = #{map.roleId}
+		<if test="map.name != null and map.name != ''">
+			and u.name = #{map.name}
+		</if>
+	</select>
+</mapper>

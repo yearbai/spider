@@ -1,0 +1,246 @@
+<style>
+    .info-box {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .info-box-text {
+        text-transform: none;
+    }
+
+    .info-box:hover .info-box-icon {
+        font-size: 60px;
+    }
+
+    .info-box-text-sm {
+        font-size: 12px;
+        font-style: normal;
+    }
+
+    .info-box-text-italic {
+        font-size: 14px;
+        font-style: italic;
+        font-weight: normal;
+    }
+
+    .text-blod {
+        font-weight: bold;
+    }
+
+    .title-sm {
+        font-weight: normal;
+        margin-left: 10px;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        爬虫管理平台
+        <small>功能介绍</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="${ctxPath}"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li class="active">爬虫管理平台 功能</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <!-- Info boxes -->
+
+
+    <a name="component"></a>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-info">
+                <div class="box-header">
+                    <h3 class="box-title">WebMagic 爬虫组建</h3>
+                    <label class="title-sm">封装WebMagic爬虫组建，通过参数配置，让爬虫一目了然</label>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool"
+                                data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <a type="button" class="btn btn-box-tool" href="#top" title="回到顶部">
+                            <i class="fa fa-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box" data-url="/markdown/preview/modal">
+					<span class="info-box-icon bg-aqua"><i
+                            class="fa fa-windows"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-blod">爬虫配置</span>
+										<span class="info-box-text">
+											爬虫规则配置组件
+										</span>
+										<span class="info-box-text-sm">
+											爬虫信息、采集规则、采集内容的封装
+										</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box" data-url="/user/page/edit">
+					<span class="info-box-icon bg-aqua"><i
+                            class="fa fa-file-text"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-blod">采集任务</span>
+										<span class="info-box-text">采集组件</span>
+										<span class="info-box-text-sm">
+                                            任务列表、任务采集详情、数据预览等
+										</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+
+
+
+                    </div>
+
+                </div>
+
+                <!-- /.row -->
+            </div>
+            <!-- ./box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+
+
+    <a name="security"></a>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">System Security 系统安全</h3>
+                    <label class="title-sm">基于Shiro，RBAC的权限管理，同时防范SQL注入、CSRF、XSS攻击</label>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool"  data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
+                        <a type="button" class="btn btn-box-tool" href="#top" title="回到顶部">
+                            <i class="fa fa-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box" data-url="/role/list">
+                                <span class="info-box-icon bg-green"><i class="fa fa-key"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-blod">RBAC</span>
+                                    <span class="info-box-text">
+                                        基于角色的访问权限控制
+                                    </span>
+                                    <span class="info-box-text-sm">
+                                        角色关联功能，用户绑定角色，用户授权
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box" data-url="/markdown/preview/csrf">
+                                <span class="info-box-icon bg-green"><i class="fa fa-lock"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-blod">Against CSRF</span>
+                                    <span class="info-box-text">
+                                        防范跨站请求伪造攻击
+                                    </span>
+                                    <span class="info-box-text-sm">
+                                        使用Token+注解配置方式在拦截器中防范CSRF攻击
+                                    </span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+
+                        <!-- fix for small devices only -->
+                        <div class="clearfix visible-sm-block"></div>
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon"><i class="fa fa-lock"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-blod">Against XXS</span>
+                                    <span class="info-box-text">
+                                        防范跨站脚本攻击
+                                    </span>
+                                    <span class="info-box-text-sm">
+                                        使用Servlet过滤方式防范XXS攻击
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-3 col-sm-6 col-xs-12">
+                            <div class="info-box">
+                                <span class="info-box-icon"><i class="fa fa-lock"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text text-blod">Against SQL Injection</span>
+										<span class="info-box-text">
+											防范SQL注入攻击
+										</span>
+										<span class="info-box-text-sm">
+
+										</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+
+                <!-- /.row -->
+            </div>
+            <!-- ./box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+
+</section>
+<!-- /.content -->
+<!-- /.content-wrapper -->
+
+<script type="text/javascript">
+    $(function () {
+        $(".info-box").each(function (index, item) {
+            $(item).hover(function () {
+                //$(this).css({"background":"red"});
+                var bg = $(this).find("span:eq(0)").attr("class").replace("info-box-icon", "").trim();
+                if(bg) {
+                    $(this).find("span:eq(0)").removeClass(bg);
+                    $(this).addClass(bg);
+                }else{
+                    bg = $(this).attr("class").replace("info-box", "").trim();
+                    $(this).find("span:eq(0)").addClass(bg);
+                    $(this).removeClass(bg);
+                }
+            }, function () {
+                var bg = $(this).attr("class").replace("info-box", "").trim();
+                if(bg) {
+                    $(this).find("span:eq(0)").addClass(bg);
+                    $(this).removeClass(bg);
+                }else {
+                    bg = $(this).find("span:eq(0)").attr("class").replace("info-box-icon", "").trim();
+                    $(this).find("span:eq(0)").removeClass(bg);
+                    $(this).addClass(bg);
+                }
+            });
+        });
+    });
+</script>

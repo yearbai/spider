@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moye.crawler.modules.sys.dao.SysMenuDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.moye.crawler.entity.sys.SysMenu">
+        <id column="id" property="id"/>
+        <result column="code" property="code"/>
+        <result column="pcode" property="pcode"/>
+        <result column="pcodes" property="pcodes"/>
+        <result column="name" property="name"/>
+        <result column="icon" property="icon"/>
+        <result column="url" property="url"/>
+        <result column="num" property="num"/>
+        <result column="levels" property="levels"/>
+        <result column="ismenu" property="ismenu"/>
+        <result column="tips" property="tips"/>
+        <result column="status" property="status"/>
+        <result column="isopen" property="isopen"/>
+    </resultMap>
+
+    <select id="selectResourceByUid" resultType="java.lang.String" parameterType="java.lang.Integer">
+		SELECT  DISTINCT m.`url` FROM sys_user_role ur
+		LEFT JOIN sys_role_menu rm ON ur.`roleid` = rm.`roleid`
+		LEFT JOIN sys_menu m ON m.`id` = rm.`menuid`
+		WHERE ur.`userid` = #{userid}
+		AND m.`url` IS NOT NULL
+		AND m.status = 1
+		AND m.`url` != ''
+
+	</select>
+
+    <select id="selectMenuIdsByuserId" parameterType="java.lang.Integer" resultType="java.lang.String">
+		SELECT DISTINCT m.url FROM `sys_user_role` ur
+		INNER JOIN `sys_role` r ON r.`id` = ur.`roleid`
+		INNER JOIN  `sys_role_menu` rm ON rm.`roleid` = ur.`roleid`
+		INNER JOIN `sys_menu` m ON m.`id` = rm.`menuid`
+		AND ur.`userid` = #{uid}
+		AND  m.status = 1
+		AND m.`url` IS NOT NULL
+	</select>
+
+    <select id="selectMenuByRoleId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select m.*  from sys_role_menu rm
+		join sys_menu m on rm.menuid = m.id  where rm.roleid = #{roleid} and m.status = 1
+	</select>
+</mapper>

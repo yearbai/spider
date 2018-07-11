@@ -1,0 +1,369 @@
+<style>
+    .title-1{
+        padding: 9px 20px;
+        border-bottom: 1px solid #f4f4f4;
+    }
+</style>
+<section class="content-header">
+    <h1>
+        <span>爬虫模板管理</span>
+        <small>新增</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="${ctxPath}"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="#">爬虫管理</a></li>
+        <li class="active">爬虫模板管理</li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <form id="user-form" name="spider-form" class="form-horizontal">
+                    <input type="hidden" name="id"/>
+                    <!--<input type="hidden" name="createTime" data-flag="date" data-format="yyyy-mm-dd hh:ii:ss"/>-->
+                    <!--<div class="box box-primary">-->
+                    <div class="title-1" style="background-color: #f1f1f1;">常规设置</div>
+                    <div class="box-body">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="siteName" class="col-sm-3 control-label">网站名称</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="siteName" name="siteName" placeholder="网站名称">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="domain" class="col-sm-3 control-label">域名</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="domain" name="domain" placeholder="域名">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-1" style="background-color: #f1f1f1;">爬虫规则设置</div>
+                    <div class="box-body">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="startUrl" class="col-sm-3 control-label">起始地址</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="startUrl" name="startUrl" placeholder="起始地址">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="pageUrlReg" class="col-sm-3 control-label">分页URL正则</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="pageUrlReg" name="pageUrlReg" placeholder="分页URL正则">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="titleReg" class="col-sm-3 control-label">标题正则</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="titleReg" name="titleReg" placeholder="标题正则">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="authorReg" class="col-sm-3 control-label">作者正则</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="authorReg" name="authorReg" placeholder="作者正则">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryReg" class="col-sm-3 control-label">分类正则</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="categoryReg" name="categoryReg" placeholder="分类正则">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="defaultCategory" class="col-sm-3 control-label">默认分类</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="defaultCategory" name="defaultCategory" placeholder="默认分类">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="contentReg" class="col-sm-3 control-label">正文正则</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="contentReg" name="contentReg" placeholder="正文正则">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="publishTimeXpath" class="col-sm-3 control-label">发布时间XPath</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="publishTimeXpath" name="publishTimeXpath" placeholder="发布时间XPath">
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label for="urlReg" class="col-sm-3 control-label">采集URL正则</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="urlReg" name="urlReg" placeholder="采集URL正则">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="titleXpath" class="col-sm-3 control-label">标题XPath</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="titleXpath" name="titleXpath" placeholder="标题XPath">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="authorXpath" class="col-sm-3 control-label">作者XPath</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="authorXpath" name="authorXpath" placeholder="作者XPath">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="categoryXpath" class="col-sm-3 control-label">分类XPath</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="categoryXpath" name="categoryXpath" placeholder="分类XPath">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contentXpath" class="col-sm-3 control-label">正文XPath</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="contentXpath" name="contentXpath" placeholder="正文XPath">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="publishTimeReg" class="col-sm-3 control-label">发布时间正则</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="publishTimeReg" name="publishTimeReg" placeholder="发布时间正则">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="publishTimeFormat" class="col-sm-3 control-label">发布时间模板</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="publishTimeFormat" name="publishTimeFormat" placeholder="发布时间模板">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="title-1" style="background-color: #f1f1f1;">爬虫参数配置</div>
+                    <div class="box-body">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="thread" class="col-sm-4 control-label">开启线程数</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="thread" value="3" name="thread" placeholder="开启线程数">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="retry" class="col-sm-4 control-label">重试次数</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="retry" value="3" name="retry" placeholder="重试次数">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label   class="col-sm-4 control-label">保留快照</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label"> <input type="radio" name="saveCapture" data-flag="icheck"  checked="checked"   class="square-green" value="1"> 是
+                                    </label> &nbsp; <label class="control-label"> <input type="radio" name="saveCapture"data-flag="icheck"  class="square-green"  value="0"> 否</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="sleep" class="col-sm-4 control-label">采集间隔</label>
+                                <div class="col-sm-6">
+                                        <input type="text" class="form-control" id="sleep" value="100" name="sleep" placeholder="采集间隔">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="maxPageGether" class="col-sm-4 control-label">采集条数</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="maxPageGether" value="10" name="maxPageGether"  placeholder="采集条数">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeout" class="col-sm-4 control-label">超时时间</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="timeout" name="timeout" value="3000" placeholder="超时时间">
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label  class="col-sm-4 control-label">必须有发布时间</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label"> <input type="radio" name="needPublishTime" data-flag="icheck"  class="square-green" value="1"> 是
+                                    </label> &nbsp; <label class="control-label"> <input type="radio" name="needPublishTime" checked="checked"  data-flag="icheck"  class="square-green"  value="0"> 否</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label   class="col-sm-4 control-label">进行nlp处理</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label"> <input type="radio" name="doNLP" data-flag="icheck"  checked="checked" class="square-green" value="1"> 是
+                                    </label> &nbsp; <label class="control-label"> <input type="radio" name="doNLP"  data-flag="icheck"  class="square-green"  value="0"> 否</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-4 control-label">动态网页</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label"> <input type="radio" name="ajaxSite" data-flag="icheck" class="square-green" value="1"> 是
+                                    </label> &nbsp; <label class="control-label"> <input type="radio" name="ajaxSite" checked="checked"  data-flag="icheck"  class="square-green"  value="0"> 否</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label  class="col-sm-4 control-label">只抓取首页</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label"> <input type="radio" name="gatherFirstPage" data-flag="icheck"  checked="checked" class="square-green" value="1"> 是
+                                    </label> &nbsp; <label class="control-label"> <input type="radio" name="gatherFirstPage"  data-flag="icheck"  class="square-green"  value="0"> 否</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label  class="col-sm-4 control-label">必须有内容</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label"> <input type="radio" name="needContent" data-flag="icheck"  checked="checked" class="square-green" value="1"> 是
+                                    </label> &nbsp; <label class="control-label"> <input type="radio" name="needContent"  data-flag="icheck"  class="square-green"  value="0"> 否</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">必须有标题</label>
+                                <div class="col-sm-6">
+                                    <label class="control-label"> <input type="radio" name="needTitle" data-flag="icheck"  checked="checked" class="square-green" value="1"> 是
+                                    </label> &nbsp; <label class="control-label"> <input type="radio" name="needTitle"  data-flag="icheck"  class="square-green"  value="0"> 否</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="userAgent" class="col-sm-4 control-label">userAgent</label>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" id="userAgent" name="userAgent" placeholder="userAgent">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.box-body -->
+                    <div class="box-footer text-right">
+                        <!--以下两种方式提交验证,根据所需选择-->
+                        <button type="button" class="btn btn-primary" data-btn-type="cancel">取消</button>
+                        <button type="button" class="btn btn-primary" data-btn-type="test">测试模板</button>
+                        <button type="submit" class="btn btn-primary" data-btn-type="save">提交</button>
+                    </div>
+                    <!-- /.box-footer -->
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+<script>
+    //tableId,queryId,conditionContainer
+    var form = null;
+    var id = "${id}";
+    $(function () {
+        //初始化控件
+        form = $("#user-form").form();
+        //数据校验
+        $("#user-form").bootstrapValidator({
+            message: '请输入有效值',
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            submitHandler: function (validator, userform, submitButton) {
+                modals.confirm('确认保存？', function () {
+                    //Save Data，对应'submit-提交'
+                    var params = form.getFormSimpleData();
+                    ajaxPost(ctxPath + '/spider/info/save', params, function (data, status) {
+                        if (data.success) {
+                            if (id != "0") {//更新
+                                gotolist(id);
+                            } else {//新增
+                                //modals.info("数据保存成功");
+                                gotolist();
+                            }
+                        }
+                    });
+                });
+            },
+            fields: {
+                siteName: {
+                    validators: {
+                        notEmpty: {
+                            message: '请输入网站名称'
+                        }
+                    }
+                },
+                startUrl: {
+                    validators: {
+                        notEmpty: {
+                            message: '请输入起始地址'
+                        }
+                    }
+                },
+                urlReg: {
+                    validators: {
+                        notEmpty: {
+                            message: '请输入URL规则'
+                        }
+                    }
+                }
+            }
+        });
+        form.initComponent();
+
+        //回填id
+        if (id != "0") {
+            ajaxPost(ctxPath + "/spider/info/get", {id: id}, function (data) {
+                form.initFormData(data);
+                $(".content-header h1 small").html("编辑爬虫模板【" + data.siteName + "】");
+            })
+        }
+
+        //cancel
+        $("[data-btn-type='cancel']").click(function () {
+            gotolist();
+        })
+
+        $("[data-btn-type='test']").click(function () {
+            var params = form.getFormSimpleData();
+            ajaxPost(ctxPath + '/spider/info/test', params, function (res, status) {
+                if (res.success) {
+                    alert(res.data.toString());
+                }
+            });
+
+        });
+    });
+
+    function gotolist(id) {
+        window.loadPage(ctxPath + "/spider/infoList?id=" + id);
+    }
+
+
+
+    function resetForm() {
+        form.clearForm();
+        $("#user-form").data('bootstrapValidator').resetForm();
+    }
+
+
+
+
+</script>

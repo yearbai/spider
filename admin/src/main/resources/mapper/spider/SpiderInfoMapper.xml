@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moye.crawler.modules.spider.dao.SpiderInfoDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moye.crawler.entity.spider.SpiderInfo">
+		<id column="id" property="id" />
+		<result column="site_name" property="siteName" />
+		<result column="domain" property="domain" />
+		<result column="thread" property="thread" />
+		<result column="retry" property="retry" />
+		<result column="sleep" property="sleep" />
+		<result column="timeout" property="timeout" />
+		<result column="max_page_gather" property="maxPageGather" />
+		<result column="priority" property="priority" />
+		<result column="start_url" property="startUrl" />
+		<result column="page_url_reg" property="pageUrlReg"/>
+		<result column="page_mark_xpath" property="pageMarkXpath"/>
+		<result column="content_reg" property="contentReg" />
+		<result column="content_xpath" property="contentXpath" />
+		<result column="title_reg" property="titleReg" />
+		<result column="title_xpath" property="titleXpath" />
+		<result column="category_reg" property="categoryReg" />
+		<result column="category_xpath" property="categoryXpath" />
+		<result column="default_category" property="defaultCategory" />
+		<result column="url_reg" property="urlReg" />
+		<result column="charset" property="charset" />
+		<result column="publish_time_xpath" property="publishTimeXpath" />
+		<result column="publish_time_reg" property="publishTimeReg" />
+		<result column="publish_time_format" property="publishTimeFormat" />
+		<result column="author_reg" property="authorReg" />
+		<result column="author_xpath" property="authorXpath" />
+		<result column="lang" property="lang" />
+		<result column="country" property="country" />
+		<result column="callback_url" property="callbackUrl" />
+		<result column="user_agent" property="userAgent" />
+		<result column="doNLP" property="doNLP" />
+		<result column="gather_first_page" property="gatherFirstPage" />
+		<result column="need_title" property="needTitle" />
+		<result column="need_content" property="needContent" />
+		<result column="need_publish_time" property="needPublishTime" />
+		<result column="ajax_site" property="ajaxSite" />
+		<result column="dynamic_fields" property="dynamicFields" />
+		<result column="static_fields" property="staticFields" />
+		<result column="create_time" property="createTime"/>
+		<result column="proxy_port" property="proxyPort"/>
+		<result column="proxy_host" property="proxyHost"/>
+		<result column="proxy_username" property="proxyUsername"/>
+		<result column="proxy_password" property="proxyPassword"/>
+
+	</resultMap>
+
+	<select id="list" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select * from spider_info where 1=1
+		<if test="map.siteName != null and map.siteName != ''">
+			and site_name = #{map.siteName}
+		</if>
+		<if test="map.domain != null and map.domain != ''">
+			and domain like #{map.domain}
+		</if>
+	</select>
+</mapper>

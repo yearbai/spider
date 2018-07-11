@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moye.crawler.modules.spider.dao.SpiderTaskDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moye.crawler.entity.spider.SpiderTask">
+		<id column="id" property="id" />
+		<result column="spider_info_id" property="spiderInfoId" />
+		<result column="name" property="name" />
+		<result column="state" property="state" />
+		<result column="use_time" property="useTime" />
+		<result column="count" property="count" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<select id="list" resultMap="BaseResultMap" parameterType="java.util.Map">
+		select * from spider_task where 1=1
+		<if test="map.name != null and map.name != ''">
+			and name like #{map.name}
+		</if>
+		<if test="map.state != null and map.state != ''">
+			and state = #{map.state}
+		</if>
+		order by create_time desc
+	</select>
+</mapper>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moye.crawler.modules.sys.dao.SysUserRoleDao">
+
+	<!-- 通用查询映射结果 -->
+	<resultMap id="BaseResultMap" type="com.moye.crawler.entity.sys.SysUserRole">
+		<id column="id" property="id" />
+		<result column="userid" property="userid" />
+		<result column="roleid" property="roleid" />
+	</resultMap>
+
+	<resultMap id="BaseResultExtMap" type="com.moye.crawler.entity.sys.SysUser">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="account" property="account" />
+	</resultMap>
+
+	<insert id="batchSave" parameterType="java.util.List">
+		insert into sys_user_role(userid, roleid) values
+		<foreach collection="list" item="item" separator=",">
+			(#{item.userid}, #{item.roleid})
+		</foreach>
+	</insert>
+
+	<select id="findUnSelectedUserList" resultMap="BaseResultExtMap" parameterType="java.util.Map" >
+		select id, name, account from sys_user where id not in(select userid from sys_user_role where roleid = #{map.roleId})
+		<if test="map.name != null and map.name != ''">
+			and name = #{map.name}
+		</if>
+	</select>
+
+	<select id="findSelectedUserList" resultMap="BaseResultExtMap" parameterType="java.util.Map" >
+		select id, name, account from sys_user where id  in(select userid from sys_user_role where roleid = #{map.roleId})
+		<if test="map.name != null and map.name != ''">
+			and name = #{map.name}
+		</if>
+	</select>
+</mapper>
